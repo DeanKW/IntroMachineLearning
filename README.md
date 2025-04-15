@@ -8,6 +8,9 @@ Note that ISLP is freely available from the book's authors and there are lecture
 * [Lab Jupyter Notebooks](https://github.com/intro-stat-learning/ISLP_labs/tree/stable)
 * [Lecture Slides and other resources](https://www.statlearning.com/resources-python)
 
+
+Additionally, if you find it a better format or want to work through only ISLP and not include any supplemental information, their course is available for free to audit on [edX](https://www.edx.org/learn/python/stanford-university-statistical-learning-with-python)
+
 This "course" will be divided up into modules, not weeks.  Why?  People of different skill levels and backgrounds will need to spend different amounts of time to understand the material.  Further, due to life responsibilities, not everyone can allocate the same number of hours each work to studying.  So remember, it's better to be slow and steady than to give up after a week!
 
 | Module | Topic                                    | ISLP Reading | HoML Reading | Assignment |
