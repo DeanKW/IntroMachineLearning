@@ -7,7 +7,8 @@
 * $Y$: Response/Dependent Variable
 * $\epsilon$: Irreducible error
   Estimate he function $f$ that relates $X$ and $Y$:
-  $$Y = f(X) + \epsilon$$
+  
+$$Y = f(X) + \epsilon$$
 
 ### 2.1.1: Why Estimate $f$?
 Two primary reasons to estimate $f$: **prediction** and **inference**
@@ -27,8 +28,9 @@ $$\hat Y = \hat f (X)$$
 #### Parametric vs. Non-Parametric Models
 ##### Parametric
 1. Assume some functional form for $f$.  This is choosing the model.  One example would be linear:
+   
 $$f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
-2. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots \beta_p$).  That is to say, find values for the parameters such that
+3. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots \beta_p$).  That is to say, find values for the parameters such that
 $$Y \approx  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
 
 In this example, we have simplified the problem of estimating $f$ down to fitting parameters $\beta_0, \beta_1, \cdots \beta_p$
@@ -62,6 +64,7 @@ In this example, we have simplified the problem of estimating $f$ down to fittin
 ## 2.2: Assessing Model Accuracy
 ### 2.2.1 Measuring the Quality of Fit
 When estimating the function $\hat f(x)$ we need to determine how well it predicts the response variable, $Y$.  The most common way of doing this is with the **Mean Squared Error (MSE)**
+
 $$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2 $$
 * $y_i$ - actual value
 * $\hat f(x_i)$ - predicted value
@@ -87,7 +90,7 @@ $$\begin{align*}
 \text{E}[y_0 - \hat{f}(x_0)]&=\text{Var}(\hat f(x_0))+ [\text{Bias}(\hat f(x_0))]^2 + \text{Var}(\epsilon)\\
 \end{align*}$$
 
-### 2.2.3: The classification Setting
+### 2.2.3: The Classification Setting
 #### The Bayes Classifier
 #### K-Nearest Neighbor
 
