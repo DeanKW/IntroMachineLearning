@@ -8,6 +8,9 @@
 * [Statistical Learning 2.3: Model Selection and Bias Variance Tradeoff](https://www.youtube.com/watch?v=pvcEQfcO3pk&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=7)
 * [Statistical Learning 2.4: Classification](https://www.youtube.com/watch?v=BMJQ3LQ_QKU&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=8)
 
+## Lecture Slides
+* [Chapter 1 Slides](https://hastie.su.domains/ISLR2/Slides/Ch1_Inroduction.pdf)
+* [Chapter 2 Slides](https://hastie.su.domains/ISLR2/Slides/Ch2_Statistical_Learning.pdf)
 ## Labs
 * [Statistical Learning I: Introducing Jonathan - Third Edition of the Course | 2023](https://www.youtube.com/watch?v=Igd5srPxZfU&list=PLoROMvodv4rNHU1-iPeDRH-J0cL-CrIda&index=1)
 * [Statistical Learning: 2.Py Setting Up Python | 2023](https://www.youtube.com/watch?v=RelOJOIKaTk&list=PLoROMvodv4rNHU1-iPeDRH-J0cL-CrIda&index=2)
