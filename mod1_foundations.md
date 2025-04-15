@@ -1,6 +1,14 @@
 # Lectures:
+* [Statistical Learning 1.1: Opening Remarks](https://www.youtube.com/watch?v=LvySJGj-88U&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=1)
+  * [Statistical Learning: 8 Years Later (Second Edition of the Course)](https://www.youtube.com/watch?v=9vlDVxG4ulA&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=2)
+  * [Statistical Learning I: Introducing Jonathan - Third Edition of the Course | 2023](https://www.youtube.com/watch?v=Igd5srPxZfU&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=3)
+* [Statistical Learning 1.2: Examples and Framework](https://www.youtube.com/watch?v=B9s8rpdNxU0&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=4)
+* [Statistical learning 2.1: Introduction to Regression Models](https://www.youtube.com/watch?v=ox0cKk7h4o0&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=5)
+* [Statistical Learning 2.2: Dimensionality and Structured Models](https://www.youtube.com/watch?v=uFwbrdvrAJs&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=6)
+* [Statistical Learning 2.3: Model Selection and Bias Variance Tradeoff](https://www.youtube.com/watch?v=pvcEQfcO3pk&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=7)
+* [Statistical Learning 2.4: Classification](https://www.youtube.com/watch?v=BMJQ3LQ_QKU&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=8)
 
-
+  
 # Readings:
 * _Introduction to Statistical Learning_: Chapter 1
 * _Introduction to Statistical Learning_: Chapter 2
@@ -34,7 +42,8 @@
 Two primary reasons to estimate $f$: **prediction** and **inference**
 
 **Prediction** - Using input variables $X$ to predict an output variable $Y$
-$$ \hat Y = \hat f (X)$$
+
+$$\hat Y = \hat f (X)$$
 * $\hat Y$: Estimate for $Y$
 * $\hat f$: estimate of the true function $f$
 * $X$: Predictor variables
@@ -42,7 +51,7 @@ $$ \hat Y = \hat f (X)$$
   _Should we add something on irreducible vs reducible error?_
 
 **Inference** - Understanding the relationship between $X$ and $Y$.
-### 2.1.2: How do we estiamte $f$?
+### 2.1.2: How do we estimate $f$?
 ## Types of Learning
 
 ## Parametric vs. Non-Parametric Models
