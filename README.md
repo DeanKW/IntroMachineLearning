@@ -2,7 +2,11 @@
 
 This repo serves two function: both as my notes and a guide for others.  I will be working through [_Introduction to Statistical Learning with Applications in Python_](https://www.statlearning.com/) and _Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow_ and including some other supplemental resources.
 
-Note that ISLP is freely available from the book's authors and there are lectures freely available that outline most of the material.  These lectures can be found at [https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ](https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ).
+Note that ISLP is freely available from the book's authors and there are lectures freely available that outline most of the material.  
+* [Lectures](https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ)
+* [Lab Lectures](https://www.youtube.com/playlist?list=PLoROMvodv4rNHU1-iPeDRH-J0cL-CrIda)
+* [Lab Jupyter Notebooks](https://github.com/intro-stat-learning/ISLP_labs/tree/stable)
+* [Lecture Slides and other resources](https://www.statlearning.com/resources-python)
 
 This "course" will be divided up into modules, not weeks.  Why?  People of different skill levels and backgrounds will need to spend different amounts of time to understand the material.  Further, due to life responsibilities, not everyone can allocate the same number of hours each work to studying.  So remember, it's better to be slow and steady than to give up after a week!
 
