@@ -5,8 +5,8 @@
 **Goal:** Given data $(X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)$, where:
 * $X$: Predictors/Independent Variables/features
 * $Y$: Response/Dependent Variable
-* $\epsilon$: Irreducible error
-  Estimate he function $f$ that relates $X$ and $Y$:
+* $\epsilon$: Irreducible error - measurement errors and other discrepancies
+  Estimate the function $f$ that relates $X$ and $Y$:
   
 $$Y = f(X) + \epsilon$$
 
@@ -20,9 +20,27 @@ $$\hat Y = \hat f (X)$$
 * $\hat f$: estimate of the true function $f$
 * $X$: Predictor variables
 
-  _Should we add something on irreducible vs reducible error?_
+We can represent the error by the average, or _expected value_ of the squared difference between the predicted value and the actual value.  This will be explained more in the future.  We call this the *Expected Prediction Error (EPE)* Just note that this consists of **reducible** and an **irreducible** portion.
+
+$$ \begin{align*}
+E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
+&= [f(X)-\hat f(X)]^2 + \text{Var}(\epsilon)\\
+&= \text{reducible error} + \text{irreducible error}
+\end{align*}$$
+
+**NOTE**: $E$ stands for expected value, NOT error
+
+
+* **reducible** error - The error in our model
+    * $[f(X)-\hat f(X)]^2$
+* **irreducible** error - The error we cannot get rid of.
+    * Even if we knew $f(x)$, we would still make errors in prediction, since for any $X=x$, there is a distribution of possibly $Y$ values
+    * $\text{Var}(\epsilon)$
+
 
 **Inference** - Understanding the relationship between $X$ and $Y$.
+
+
 ### 2.1.2: How do we estimate $f$?
 
 #### Parametric vs. Non-Parametric Models
@@ -70,7 +88,7 @@ $$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2 $$
 * $\hat f(x_i)$ - predicted value
 * $n$ - number of data points
 
-MSE is computed using the training data, but we don't really care about how well it does on training data!  Far more interested in how it predicts new, unseen data!  So what we want to do is split our test data and training data and test them separately!
+If MSE were computed using the training data, we would fit our training points as closely as possible and would surely overfit, so we don't really care how $\text{MSE}_{\text{train}}$ does!  We are far more interested in how our model predicts new, unseen data!  So what we want to do is split our test data and training data and test them separately!
 
 **Test error is what we really care about, not the training error**
 
