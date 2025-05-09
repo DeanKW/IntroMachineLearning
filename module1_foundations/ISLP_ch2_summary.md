@@ -110,7 +110,32 @@ $$\begin{align*}
 
 ### 2.2.3: The Classification Setting
 #### The Bayes Classifier
-#### K-Nearest Neighbor
+The **Bayes classifier** (sometimes referred to as the Bayes optimal classifier) is simply one which assigns to each $x$ value the class that is most likely, given that $X=x$.  That is, whatever class $j$ for which
+$$\begin{equation*}
+\text{Pr}(Y=j | X=x)
+\end{equation*}$$
+is the largest.
+A mathematical way of writing this could be:
+$$\begin{equation*}
+C(x) = j \text{ if } p_j(x) = \max\{p_1(x), p_2(x), \ldots, p_k(x)\}
+\end{equation*}$$
+
+This can also be represented with a mathematical operation argmax, which can be thought of as argmax of $ f(x)$ is the $x$ value for which $f(x)$ is biggest." For a formal definition of argmax, please see [wikipedia](https://en.wikipedia.org/wiki/Arg_max).
+
+Using argmax, we say
+$$
+C_{\text{Bayes}} (x) = \underset{j}{\operatorname{arg max}} \operatorname{Pr}(Y=j | X=x)
+$$
+
+If you are not familiar with argmax, we can think of $ \underset{x}{\operatorname{arg max}} f(x)$ as being equal to whatever value of $x$ maximized $f(x)$.
+
+They Bayes classifier can be thought of as the optimal classifier, since it will minimize error as it always classifies to the most likely class.  Unfortunately, we don't know the conditional probability of $Y$ given $x$, but many methods attempt to estimate this conditional distribution.  The most basic one is...
+#### K-Nearest Neighbors
+For any test observation, $x_0$, the K-Nearest Neighbors (KNN) classifier first finds the $K$ points in the training data closest to $x_0$.  It then estimates the conditional probability for class $j$, given $X=x_0$ as the percent of points in these $K$ points with class $j$.  It then classifies to whichever class has the highest probability.
+
+Using less math lingo, KNN classifies a point $x_0$ as whichever class is most prevalent (in the training data) of the $K$ points closest to $x_0$.
+
+Note: While it is simple, for many problems, K-nearest neighbors works great!
 
 # Key Takeaways
 * The goal of statistical learning is to estimate the function $f$ that connects input variable $X$ to output variable $Y$
