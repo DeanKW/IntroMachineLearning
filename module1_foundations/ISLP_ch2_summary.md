@@ -111,22 +111,25 @@ $$\begin{align*}
 ### 2.2.3: The Classification Setting
 #### The Bayes Classifier
 The **Bayes classifier** (sometimes referred to as the Bayes optimal classifier) is simply one which assigns to each $x$ value the class that is most likely, given that $X=x$.  That is, whatever class $j$ for which
-$$\begin{equation*}
+$$
+\begin{equation*}
 \text{Pr}(Y=j | X=x)
-\end{equation*}$$
+\end{equation*}
+$$
 is the largest.
 A mathematical way of writing this could be:
 $$\begin{equation*}
 C(x) = j \text{ if } p_j(x) = \max\{p_1(x), p_2(x), \ldots, p_k(x)\}
 \end{equation*}$$
 
-> [!NOTE] My addition, not from ISLP \
-> This can also be represented with a mathematical operation argmax, which can be thought of as argmax of $ f(x)$ is the $x$ value for which $f(x)$ is biggest." For a formal definition of argmax, please see [wikipedia](https://en.wikipedia.org/wiki/Arg_max).
+> [!NOTE]
+> My addition, not from ISLP \
+> This can also be represented with a mathematical operation argmax, which can be thought of as argmax of $f(x)$ is the $x$ value for which $f(x)$ is biggest." For a formal definition of argmax, please see [wikipedia](https://en.wikipedia.org/wiki/Arg_max). \
 > Using argmax, we say
-> $$
-> C_{\text{Bayes}} (x) = \underset{j}{\operatorname{arg max}} \operatorname{Pr}(Y=j | X=x)
-> $$
-> If you are not familiar with argmax, we can think of $ \underset{x}{\operatorname{arg max}} f(x)$ as being equal to whatever value of $x$ maximized $f(x)$.
+> $$C_{\text{Bayes}} (x) = \underset{j}{\text{argmax}} \text{Pr}(Y=j | X=x)
+$$
+> $$C_{\text{Bayes}} (x) = \underset{j}{\text{arg max}} \text{Pr}(Y=j | X=x)$$
+> If you are not familiar with argmax, we can think of $ \underset{x}{\text{arg max}} f(x)$ as being equal to whatever value of $x$ maximized $f(x)$.
 
 The Bayes classifier can be thought of as the optimal classifier, since it will minimize error as it always classifies to the most likely class.  Unfortunately, we don't know the conditional probability of $Y$ given $x$, but many methods attempt to estimate this conditional distribution.  The most basic one is...
 #### K-Nearest Neighbors
