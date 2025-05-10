@@ -37,3 +37,10 @@ Please see our [Recommended order](#our-suggested-order).
 
 
 # Our Suggested Order
+* Read ISLP 3.0 (the stuff before 3.1)
+* Watch [Statistical Learning 3.1 Simple Linear Regression](https://www.youtube.com/watch?v=vCHtY6Me5FI&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=13)
+* Read ISLP 3.1: Simple Linear Regression
+* Coding exercise: confidence intervals
+* Coding exercise: Implement from scratch using numpy arrays and no for loops
+* Watch [3.2 Hypothesis Testing and Confidence Intervals](https://www.youtube.com/watch?v=3GiWpRfkSjc&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=14)
+* Read 
