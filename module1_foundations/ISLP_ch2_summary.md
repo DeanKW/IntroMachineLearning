@@ -28,7 +28,8 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 &= \text{reducible error} + \text{irreducible error}
 \end{align*}$$
 
-> [!NOTE]: $E$ stands for expected value, NOT error
+> [!NOTE]
+> $E$ stands for expected value, NOT error
 
 
 * **reducible** error - The error in our model
@@ -48,10 +49,10 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 1. Assume some functional form for $f$.  This is choosing the model.  One example would be linear:
    
 $$f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
-3. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots \beta_p$).  That is to say, find values for the parameters such that
+3. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots, \beta_p$).  That is to say, find values for the parameters such that
 $$Y \approx  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
 
-In this example, we have simplified the problem of estimating $f$ down to fitting parameters $\beta_0, \beta_1, \cdots \beta_p$
+In this example, we have simplified the problem of estimating $f$ down to fitting parameters $\beta_0, \beta_1, \cdots, \beta_p$
 * Too flexible a model leads to underfitting and poor predictions
 * Too complex a model leads to overfitting
 * Choosing a functional form that is very different from the true form of $f$ will result in poor results
@@ -81,11 +82,11 @@ In this example, we have simplified the problem of estimating $f$ down to fittin
 
 ## 2.2: Assessing Model Accuracy
 ### 2.2.1 Measuring the Quality of Fit
-When estimating the function $\hat f(x)$ we need to determine how well it predicts the response variable, $Y$.  The most common way of doing this is with the **Mean Squared Error (MSE)**
+When estimating the function $\hat f (x)$ we need to determine how well it predicts the response variable, $Y$.  The most common way of doing this is with the **Mean Squared Error (MSE)**
 
 $$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2 $$
 * $y_i$ - actual value
-* $\hat f(x_i)$ - predicted value
+* $\hat{f}(x_i)$ - predicted value
 * $n$ - number of data points
 
 If MSE were computed using the training data, we would fit our training points as closely as possible and would surely overfit, so we don't really care how $\text{MSE}_{\text{train}}$ does!  We are far more interested in how our model predicts new, unseen data!  So what we want to do is split our test data and training data and test them separately!
