@@ -1,4 +1,7 @@
 \input{../note_template}
+\lhead{github.com/DeanKW/IntroMachineLearning}
+\rhead{Chapter 2: Statistical Learning}
+\chead{\textbf{ISLP Notes}}
 \begin{document}
 \section*{Chapter 2 Summary: Statistical Learning}\label{chapter-2-summary-statistical-learning}
 
@@ -24,7 +27,7 @@ know the true relationship. \\
 
 
 Two primary reasons to estimate \(f\): \textbf{prediction} and \textbf{inference}
-
+\paragraph{Prediction\\}
 \textbf{Prediction} - Using input variables \(X\) to predict an output variable \(Y\)
 
 \begin{equation*}
@@ -37,11 +40,8 @@ Two primary reasons to estimate \(f\): \textbf{prediction} and \textbf{inference
 \item \(X\): Predictor variables
 \end{itemize}
 
-We can represent the error by the average, or \emph{expected value} of
-the squared difference between the predicted value and the actual value.
-This will be explained more in the future. We call this the
-\emph{Expected Prediction Error (EPE)} Just note that this consists of
-\textbf{reducible} and an \textbf{irreducible} portion.
+We can represent the error by the average, or \emph{expected value} of the squared difference between the predicted value and the actual value.
+This will be explained more in the future. We call this the \emph{Expected Prediction Error (EPE)} Just note that this consists of \textbf{reducible} and an \textbf{irreducible} portion.
 
 \begin{align*}
 E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
@@ -60,42 +60,39 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 
   \begin{itemize}
   \tightlist
-  \item
-    \([f(X)-\hat f(X)]^2\)
+  \item  \([f(X)-\hat f(X)]^2\)
   \end{itemize}
-\item
-  \textbf{Irreducible} error - The error we cannot get rid of.
+\item  \textbf{Irreducible} error - The error we cannot get rid of.
 
   \begin{itemize}
   \tightlist
-  \item
-    Even if we knew \(f(x)\), we would still make errors in prediction,     since for any \(X=x\), there is a distribution of possibly \(Y\) values
+  \item  Even if we knew \(f(x)\), we would still make errors in prediction, since for any \(X=x\), there is a distribution of possibly \(Y\) values
   \item  \(\text{Var}(\epsilon)\)
   \end{itemize}
 \end{itemize}
-
+\paragraph{Inference\\}
 \textbf{Inference} - Understanding the relationship between \(X\) and
 \(Y\).
 
-\subsubsection*{\texorpdfstring{2.1.2: How do we estimate
-\(f\)?}{2.1.2: How do we estimate f?}}\label{how-do-we-estimate-f}
+\subsubsection*{\texorpdfstring{2.1.2: How do we estimate \(f\)?}{2.1.2: How do we estimate f?}}\label{how-do-we-estimate-f}
 
 \paragraph*{Parametric vs.~Non-Parametric Models}\label{parametric-vs.-non-parametric-models}
 
 \subparagraph{Parametric}\label{parametric}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item
-  Assume some functional form for \(f\). This is choosing the model. One
+\item  Assume some functional form for \(f\). This is choosing the model. One
   example would be linear:
-  \[f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p\] 
-  \item
-  Fit or train the model. Use some procedure to estimate the parameters
-  (in this case \(\beta_0, \beta_1, \cdots, \beta_p\)). That is to say,
-  find values for the parameters such that
-  \[Y \approx  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p\]
+  \begin{equation*}
+	f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p
+  \end{equation*}
+  \item  Fit or train the model. Use some procedure to estimate the parameters
+  (in this case \(\beta_0, \beta_1, \cdots, \beta_p\)). That is to say, find values for the parameters such that
+  \begin{equation*}
+		Y \approx  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p
+  \end{equation*}
+
 \end{enumerate}
 
 
@@ -174,8 +171,8 @@ If MSE were computed using the training data, we would fit our training points a
 
 \begin{itemize}
 \tightlist
-\item  Flexible (complex) models fit the training data very well and thus  have low training error
-\item   They may not generalize well to the test data, which results in poor  results. We call this \textbf{overfitting}
+\item  Flexible (complex) models fit the training data very well and thus have low training error
+\item  They may not generalize well to the test data, which leads to poor results. We call this \textbf{overfitting}
 \end{itemize}
 \subsubsection*{2.2.2: The  Bias-Variance Trade-Off}
 \begin{itemize}
@@ -202,7 +199,7 @@ If MSE were computed using the training data, we would fit our training points a
 
 \subsubsection*{2.2.3: The Classification Setting}\label{the-classification-setting}
 
-\paragraph{The Bayes Classifier}
+\paragraph{The Bayes Classifier\\}
 
 
 The \textbf{Bayes classifier} (sometimes referred to as the Bayes optimal classifier) is simply one which assigns to each \(x\) value the class that is most likely, given that \(X=x\). That is, whatever class \(j\) for which 
@@ -231,7 +228,7 @@ The Bayes classifier can be thought of as the optimal classifier, since it will 
 classifies to the most likely class. Unfortunately, we don't know the conditional probability of \(Y\) given
 \(x\), but many methods attempt to estimate this conditional distribution. The most basic one is\ldots{}
 
-\paragraph{K-Nearest Neighbors}
+\paragraph{K-Nearest Neighbors\\}
 For any test observation, \(x_0\), the K-Nearest Neighbors (KNN)
 classifier first finds the \(K\) points in the training data closest to
 \(x_0\). It then estimates the conditional probability for class \(j\),
@@ -245,8 +242,8 @@ is most prevalent (in the training data) of the \(K\) points closest to
 
 Note: While it is simple, for many problems, K-nearest neighbors works
 great!
-
-\section*{Key Takeaways}\label{key-takeaways}
+\section*{Key Takeaways}
+\begin{note}[Key Takeaways]
 
 \begin{itemize}
 \tightlist
@@ -261,5 +258,6 @@ great!
 \item  Supervised learning can be either \textbf{regression} (quantitative  \(Y\)) or \textbf{classification} (qualitative \(Y\))
 \item  Model assessment (testing) should be on data that is reserved for  testing, not what was used to train
 \end{itemize}
+\end{note}
 
 \end{document}
