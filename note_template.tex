@@ -66,6 +66,17 @@
 	%\end{info@box}%
 }
 
+\newenvironment{warning}[1][]{% Create new environment using info@box and tcolorbox
+	%	\begin{info@box}%
+		\begin{tcolorbox}[colback=red!15!white,%                    background color
+			colframe=red!75!black,%                               frame color
+			title=Warning\ifstrempty{#1}{}{: #1}% title
+			]%
+		}{%
+		\end{tcolorbox}%
+		%\end{info@box}%
+	}
+
 
 \newenvironment{tip}[1][]{% Create new environment using info@box and tcolorbox
 	\begin{info@box}%

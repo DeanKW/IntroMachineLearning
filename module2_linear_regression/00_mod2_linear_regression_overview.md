@@ -34,7 +34,7 @@ Please see our [Recommended order](#our-suggested-order).
 ## Assignments:
 
 # Notes
-* [Chapter 3 Summary: Statistical Learning Notes](ISLP_ch3_summary.md)
+* [Chapter 3 Summary: Statistical Learning Notes](ISLP_ch3_notes.pdf)
 
 
 # Our Suggested Order

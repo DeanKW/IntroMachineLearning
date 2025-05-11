@@ -1,0 +1,142 @@
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\input{../note_template}
+\begin{document}
+    \section*{Chapter 3 Summary: Linear    Regression}\label{chapter-3-summary-linear-regression}
+
+        
+        Linear regression (yes, the one from middle or high school) may seem boring and not worth your time, but it is! 
+        It is widely used and many    fancier models are generalizations or extensions of linear regression.    So seriously, this is important.
+        \subsection*{3.1 Simple Linear Regression}
+        \textbf{Simple Linear Regression} assumes that the response variable,
+        \(Y\) has a linear relationship to a single predictor variable \(X\). 
+        \begin{equation*}
+            Y \approx \beta_0 + \beta_1 X
+        \end{equation*}
+        
+        
+        \begin{note}
+            This is the same relationship as \(y=mx+b\) you likely
+            remember from school.\\
+            \(\beta_0\) represents the intercept, \(b\) while \(\beta_1\) represents
+            the slope, \(m\).\\
+            In the future, we will use this same notation when \(Y\) and \(X\) are
+            vectors, usually writing them bolded
+            \(\mathbf{Y} \approx \beta_0 + \beta_1 \mathbf{X}\)
+        \end{note}
+        
+        \(\beta_0\) and \(\beta_1\) are referred to as the \textbf{coefficients}
+        or \textbf{parameters}.\\
+        We will use our training data to estimate these parameters and then
+        indicate and reprsent our \textbf{model} as 
+        \begin{equation*}
+            \hat Y \approx \hat \beta_0 + \hat \beta_1 X
+        \end{equation*}
+
+        \begin{note}
+            We call this ``hat notation.'' In statistics, a hat over something indicates it's either an
+            \href{https://en.wikipedia.org/wiki/Estimator}{estimator} or an estimated value.
+        \end{note}
+        
+        \subsubsection*{3.1.1  Estimating the Coefficients}\label{estimating-the-coefficients}
+        
+        Since we do not know the true relationship between \(X\) and \(Y\), we
+        use the training data to estimate \(\beta_0\) and \(\beta_1\)
+
+        \begin{note}Just like you did in middle/high school when calculating the line of best fit
+        \end{note}
+        
+        We will use \textbf{least squares} as the criteria to determine what
+        values to use for our parameters, \(\beta_0\) and \(\beta_1\).
+        
+        The \(i\)th \textbf{residual} is the difference between the \(i\)th
+        response variable and our prediction for that variable
+        \begin{equation*}
+        e_i = y_i - \hat y_i
+        \end{equation*}
+        
+        The \textbf{residual sum of squares} is defined
+        
+        
+        \begin{align*}
+            \text{RSS} &= e_1^2 + e_2^2 + \cdots + e_n^2 \\
+            &= (y_1 - \hat \beta_0 - \hat \beta_1 x_1)^2 + (y_2 - \hat \beta_0 - \hat \beta_1 x_2)^2  + \cdots + (y_n - \hat \beta_0 - \hat \beta_1 x_n)^2 
+        \end{align*}
+        
+        
+        The parameters can be calculated as:
+        
+        \begin{gather*}
+        \hat \beta_1 = \frac{\sum_{i=1}^n(x_i - \bar x)(y_i-\bar y)}{\sum_{i=1}^n(x_i - \bar xx)^2}\\
+        \hat \beta_0 = \bar y - \hat \beta_1 \bar x
+    \end{gather*}
+     where \(\bar y\) and \(\bar x\) are the sample means.
+        \(\bar y = \frac{1}{n}\sum_{i=1}^n y_i\) and
+        \(\bar x = \frac{1}{n}\sum_{i=1}^n x_i\) \#\#\# 
+        \subsection*{3.1.2 Assessing the Accuracy of the Coefficient Estimates}
+        \textbf{Standard error} tells us the average amount that an estimate differs from the actual value.
+        
+        \begin{equation*}
+            \text{Var}(\hat \mu) = \text{SE}(\hat \mu)^2 = \frac{\sigma^2}{n}
+        \end{equation*}
+        
+        
+        \begin{equation*}
+            \text{SE}(\hat \beta_0)^2 = \sigma^2 \left[ \frac{1}{n} + \frac{\bar x ^2}{\sum_{i=1}^n (x_i - \bar x)^2} \right]
+        \end{equation*}
+        
+        \begin{equation*}
+            \text{SE}(\hat \beta_1)^2 = \frac{\sigma^2}{\sum_{i=1}^n (x_i - \bar x)^2}
+        \end{equation*}
+        
+        where \(\sigma^2 = \text{Var}(\epsilon)\) While we generally don't know \(\sigma^2\), it can be estimated from the data.\\
+        The estimate of \(\sigma\) is called \textbf{residual standard error}
+        \begin{equation*}
+            \sigma = \text{RSE} = \sqrt{\frac{\text{RSS}}{n-2}}
+        \end{equation*}
+        
+        \paragraph{Confidence Intervals}
+         Standard errors can be used to compute    \textbf{confidence intervals}. The 95\% confidence interval for
+        \(\beta_0\) and \(\beta_1\) are approximately: 
+        \begin{gather*}
+            \hat \beta_0 \pm 2 \cdot \text{SE}(\hat \beta_0)\\
+            \hat \beta_1 \pm 2 \cdot \text{SE}(\hat \beta_1)
+        \end{gather*}
+        
+        This means there is approximately a 95\% chance that the interval
+        \begin{equation*}
+            \left[\beta_0 - 2 \cdot \text{SE}(\hat \beta_0), \beta_0 + 2 \cdot \text{SE}(\hat \beta_0)\right]            
+        \end{equation*}
+        
+        contains the true value for \(\beta_0\). 
+        \textbf{NOTE: This is an incorrect interpretation of a confidence interval , but it is what the    book writes. Please see the warning below}
+        
+        \begin{note}
+            1.96 is closer to the correct value than 2. This value comes from the Z-score value for a 97.5\% quantile of a t-distribution. You
+            are likely to see these in any statistics class.
+        \end{note}
+        
+        \begin{warning}
+            A 95\% confidence interval does \textbf{NOT} mean we are 95\% confident that the true parameters lies within that range.\\
+            What it really means is that we sampled the data 100 times, each time calculating the parameter and confidence interval 95\% of those
+            confidence intervals would contain the true value of the parameter.\\
+            It's a small distinction, but I wanted to make it, even if the book did    not.\\
+            That said, it's generally okay to say we're 95\% confidence the true value is in the interval, even if it's incorrect. In pure statistics,
+            the distinction is generally considered 
+        \end{warning}
+        
+        \subsection*{3.2 Multiple Linear    Regression}\label{multiple-linear-regression}
+        
+        \subsubsection*{3.2.1 Estimating the Regression    Coefficients}\label{estimating-the-regression-coefficients}
+        
+        \subsubsection*{3.2.2 Some Important    Questions}\label{some-important-questions}
+        
+        \subsection*{3.3 Other Considerations in the Regression    Model}\label{other-considerations-in-the-regression-model}
+        
+        \subsection*{3.4 The Marketing Plan}\label{the-marketing-plan}
+        
+        \subsection*{3.5 Comparison of Linear Regression with K-Nearest Neighbors}\label{comparison-of-linear-regression-with-k-nearest-neighbors}
+        
+    
+\end{document}
