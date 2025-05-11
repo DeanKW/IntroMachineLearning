@@ -2,13 +2,15 @@
 ## 2.1: What is Statistical Learning?
 **Statistical Learning** is a set of tools for estimating a function, $f$, that connects input variables $X$ and output variables $Y$.  We estimate $f$ because we do not (and often can not) know the true relationship.
 
-**Goal:** Given data $(X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)$, where:
+**Goal:** Estimate the function $f$ that relates $X$ and $Y$:
+$$Y = f(X) + \epsilon$$
+Given data $(X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)$, where:
 * $X$: Predictors/Independent Variables/features
 * $Y$: Response/Dependent Variable
 * $\epsilon$: Irreducible error - measurement errors and other discrepancies
-  Estimate the function $f$ that relates $X$ and $Y$:
   
-$$Y = f(X) + \epsilon$$
+  
+
 
 ### 2.1.1: Why Estimate $f$?
 Two primary reasons to estimate $f$: **prediction** and **inference**
@@ -29,7 +31,7 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 \end{align*}$$
 
 > [!NOTE]
-> $E$ stands for expected value, NOT error
+> $E$ means expected value, NOT error
 
 
 * **reducible** error - The error in our model
@@ -49,7 +51,7 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 1. Assume some functional form for $f$.  This is choosing the model.  One example would be linear:
    
 $$f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
-3. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots, \beta_p$).  That is to say, find values for the parameters such that
+2. Fit or train the model.  Use some procedure to estimate the parameters (in this case $\beta_0, \beta_1, \cdots, \beta_p$).  That is to say, find values for the parameters such that
 $$Y \approx  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p$$
 
 In this example, we have simplified the problem of estimating $f$ down to fitting parameters $\beta_0, \beta_1, \cdots, \beta_p$
@@ -89,7 +91,7 @@ $$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2 $$
 * $\hat{f}(x_i)$ - predicted value
 * $n$ - number of data points
 
-If MSE were computed using the training data, we would fit our training points as closely as possible and would surely overfit, so we don't really care how $\text{MSE}_{\text{train}}$ does!  We are far more interested in how our model predicts new, unseen data!  So what we want to do is split our test data and training data and test them separately!
+If MSE were computed using the training data, we would fit our training points as closely as possible and would surely overfit, so we don't really care how $\text{MSE}_{\text{train}}$ does!  We are far more interested in how our model predicts new, unseen data!  So what we want to do is split our test data and training data, then test them separately!
 
 **Test error is what we really care about, not the training error**
 

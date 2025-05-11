@@ -13,11 +13,13 @@ Please see our [Recommended order](#our-suggested-order).
 ## Lecture Slides
 * [Chapter 3 Slides](https://hastie.su.domains/ISLR2/Slides/Ch3_Linear_Regression.pdf)
 
-## Labs
-* [tatistical Learning: 3.Py Linear Regression and statsmodels Package | 2023](https://www.youtube.com/watch?v=mKalBNrxToU&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=18)
+## Lab Lectures
+* [Statistical Learning: 3.Py Linear Regression and statsmodels Package | 2023](https://www.youtube.com/watch?v=mKalBNrxToU&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=18)
 * [Statistical Learning: 3.Py Multiple Linear Regression Package | 2023](https://www.youtube.com/watch?v=pGOr3HZhUZQ&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=19)
 * [Statistical Learning: 3.Py Interactions, Qualitative Predictors and Other Details | 2023](https://www.youtube.com/watch?v=d0K2mDclyXM&list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&index=20)
 
+# Lab:
+[Linear Regression](https://github.com/intro-stat-learning/ISLP_labs/blob/stable/Ch03-linreg-lab.ipynb)
   
 # Readings:
 * _Introduction to Statistical Learning_: Chapter 3
@@ -27,8 +29,7 @@ Please see our [Recommended order](#our-suggested-order).
 
 ## Things to Think About:
 
-# Lab:
-[Linear Regression](https://github.com/intro-stat-learning/ISLP_labs/blob/stable/Ch03-linreg-lab.ipynb)
+
 
 ## Assignments:
 

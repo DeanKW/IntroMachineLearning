@@ -56,6 +56,7 @@ $$
 $$
 where $\bar y$ and $\bar x$ are the sample means.  $\bar y = \frac{1}{n}\sum_{i=1}^n y_i$ and $\bar x = \frac{1}{n}\sum_{i=1}^n x_i$ 
 ### 3.1.2 Assessing the Accuracy of the Coefficient Estimates
+#### Standard Error
 Standard error tells us the average amount that an estimate differs from the actual value.
 
 $$
@@ -75,6 +76,7 @@ The estimate of $\sigma$ is called **residual standard error**
 $$
 \sigma = \text{RSE} = \sqrt{\frac{\text{RSS}}{n-2}}
 $$
+#### Confidence Intervals
 Standard errors can be used to compute **confidence intervals**.  The 95% confidence interval for $\beta_0$ and $\beta_1$
 are approximately:
 $$
