@@ -1,6 +1,6 @@
 \providecommand{\tightlist}{%
-	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-	
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \input{../note_template}
 \begin{document}
 \section*{Chapter 2 Summary: Statistical Learning}\label{chapter-2-summary-statistical-learning}
@@ -13,14 +13,14 @@ know the true relationship. \\
 
 \noindent \textbf{Goal:} Estimate the function \(f\) that relates \(X\) and \(Y\):
 \begin{equation*}
-	Y = f(X) + \epsilon
+    Y = f(X) + \epsilon
 \end{equation*}
-	Given data \((X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)\), where: 
+    Given data \((X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)\), where:
 \begin{itemize}
-	\tightlist
-	\item \(X\): Predictors/Independent Variables/features 
-	\item \(Y\): Response/Dependent Variable
-	\item  \(\epsilon\): Irreducible error - measurement errors and	other discrepancies
+    \tightlist
+    \item \(X\): Predictors/Independent Variables/features
+    \item \(Y\): Response/Dependent Variable
+    \item  \(\epsilon\): Irreducible error - measurement errors and other discrepancies
 \end{itemize}
 
 \subsubsection*{\texorpdfstring{2.1.1: Why Estimate \(f\)?}{2.1.1: Why Estimate f?}}\label{why-estimate-f}
@@ -31,7 +31,7 @@ Two primary reasons to estimate \(f\): \textbf{prediction} and \textbf{inference
 \textbf{Prediction} - Using input variables \(X\) to predict an output variable \(Y\)
 
 \begin{equation*}
-	hat Y = \hat f (X)
+    hat Y = \hat f (X)
 \end{equation*}
 \begin{itemize}
 \tightlist
@@ -53,7 +53,7 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 \end{align*}
 
 \begin{note}
-	\(E\) means expected value, NOT error
+    \(E\) means expected value, NOT error
 \end{note}
 
 \begin{itemize}
@@ -104,20 +104,19 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 
 In this example, we have simplified the problem of estimating \(f\) down to fitting parameters \(\beta_0, \beta_1, \cdots, \beta_p\)
 \begin{itemize}
-	\tightlist
-	\item Too flexible a model leads to underfitting and poor predictions
-	\item Too complex a model leads to overfitting
-	\item Choosing a functional form that is very different from the true form of \(f\) will result in poor results
-	
+    \tightlist
+    \item Too flexible a model leads to underfitting and poor predictions
+    \item Too complex a model leads to overfitting
+    \item Choosing a functional form that is very different from the true form of \(f\) will result in poor results
 \end{itemize}
 
 \subparagraph{Non-Parametric}
 \begin{itemize}
-	\tightlist
-	\item No explicit assumption about the	functional form of \(f\)
-	\item More flexible since no specific function shape, can fit many shapes
-	\item Requires far more training data to 	accurately estimate \(f\) since the problem isn't reduced to estimating	parameters 
-	\item Easy to overfit to training data
+    \tightlist
+    \item No explicit assumption about the    functional form of \(f\)
+    \item More flexible since no specific function shape, can fit many shapes
+    \item Requires far more training data to     accurately estimate \(f\) since the problem isn't reduced to estimating    parameters 
+    \item Easy to overfit to training data
 \end{itemize}
 
 \paragraph{Supervised vs.~Unsupervised Learning}\label{supervised-vs.-unsupervised-learning}
@@ -132,7 +131,7 @@ In this example, we have simplified the problem of estimating \(f\) down to fitt
   
    \subparagraph{Unsupervised}
    \begin{itemize}
-   	\tightlist
+       \tightlist
 \item  For each observation, we have the input measurements \(x_i\), but  there is no associated response, \(y_i\)
 \item  Often seek to understand the relationship between variables or  observations
 \item  Ex: Clustering
@@ -163,13 +162,13 @@ When estimating the function \(\hat f (x)\) we need to determine how well it pre
 The most common way of doing this is with the \textbf{Mean Squared Error (MSE)}.
 
 \begin{equation*}
-	\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2 
+    \text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2
 \end{equation*}
 \begin{itemize}
-	\tightlist
-	\item \(y_i\) - actual value 
-	\item  \(\hat{f}(x_i)\) - predicted value 
-	\item \(n\) - number of data points
+    \tightlist
+    \item \(y_i\) - actual value
+    \item  \(\hat{f}(x_i)\) - predicted value
+    \item \(n\) - number of data points
 \end{itemize}
 
 If MSE were computed using the training data, we would fit our training points as closely as possible and would surely overfit, so we don't really care how \(\text{MSE}_{\text{train}}\) does! We are far more interested in how our model predicts new, unseen data! So what we want to do is split our test data and training data, then test them separately!
@@ -220,15 +219,15 @@ C(x) = j \text{ if } p_j(x) = \max\{p_1(x), p_2(x), \ldots, p_k(x)\}
 \end{equation*}
 
 \begin{aside}
-	This can also be represented with a mathematical operation	argmax.  argmax of \(f(x)\) is equal to the \(x\) value
-	for which \(f(x)\) is biggest. For a formal definition of argmax,
-	please see \href{https://en.wikipedia.org/wiki/Arg_max}{wikipedia}.\\
-	Using argmax, we say
-	\begin{equation*}
-		C_{\text{Bayes}} (x) = \underset{j}{\operatorname{argmax}} \text{Pr}(Y=j | X=x)
-	\end{equation*}\\
-	If you are not familiar with argmax, we can think of \(\underset{x}{\operatorname{argmax}} f(x)\) as being equal to whatever value
-	of \(x\) maximized \(f(x)\).
+    This can also be represented with a mathematical operation    argmax.  argmax of \(f(x)\) is equal to the \(x\) value
+    for which \(f(x)\) is biggest. For a formal definition of argmax,
+    please see \href{https://en.wikipedia.org/wiki/Arg_max}{wikipedia}.\\
+    Using argmax, we say
+    \begin{equation*}
+        C_{\text{Bayes}} (x) = \underset{j}{\operatorname{argmax}} \text{Pr}(Y=j | X=x)
+    \end{equation*}\\
+    If you are not familiar with argmax, we can think of \(\underset{x}{\operatorname{argmax}} f(x)\) as being equal to whatever value
+    of \(x\) maximized \(f(x)\).
 \end{aside}
 
 The Bayes classifier can be thought of as the optimal classifier, since it will minimize error as it always 

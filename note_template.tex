@@ -14,10 +14,10 @@
 
 
 \hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,      
-	urlcolor=blue,
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
 }
 
 \newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
@@ -28,7 +28,7 @@
 
 \newenvironment{problem}[2][Problem]
 { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
-	{  \end{mdframed}}
+    {  \end{mdframed}}
 
 % Define solution environment
 \newenvironment{solution}
@@ -44,68 +44,68 @@
 \floatname{info@box}{Infobox}% Adapt caption.
 
 \newenvironment{infobox}[1][]{% Create new environment using info@box and tcolorbox
-	%\begin{info@box}%
-		\begin{tcolorbox}[colback=red!15!white,%                    background color
-			colframe=red!75!black,%                               frame color
-			title=Additional information\ifstrempty{#1}{}{: #1}.% title
-			]%
-		}{%
-		\end{tcolorbox}%
-%	\end{info@box}%
+    %\begin{info@box}%
+        \begin{tcolorbox}[colback=red!15!white,%                    background color
+            colframe=red!75!black,%                               frame color
+            title=Additional information\ifstrempty{#1}{}{: #1}.% title
+            ]%
+        }{%
+        \end{tcolorbox}%
+%    \end{info@box}%
 }
 
 
 \newenvironment{note}[1][]{% Create new environment using info@box and tcolorbox
-%	\begin{info@box}%
-		\begin{tcolorbox}[colback=blue!15!white,%                    background color
-			colframe=blue!75!black,%                               frame color
-			title=Note\ifstrempty{#1}{}{: #1}% title
-			]%
-		}{%
-		\end{tcolorbox}%
-	%\end{info@box}%
+%    \begin{info@box}%
+        \begin{tcolorbox}[colback=blue!15!white,%                    background color
+            colframe=blue!75!black,%                               frame color
+            title=Note\ifstrempty{#1}{}{: #1}% title
+            ]%
+        }{%
+        \end{tcolorbox}%
+    %\end{info@box}%
 }
 
 \newenvironment{warning}[1][]{% Create new environment using info@box and tcolorbox
-	%	\begin{info@box}%
-		\begin{tcolorbox}[colback=red!15!white,%                    background color
-			colframe=red!75!black,%                               frame color
-			title=Warning\ifstrempty{#1}{}{: #1}% title
-			]%
-		}{%
-		\end{tcolorbox}%
-		%\end{info@box}%
-	}
+    %    \begin{info@box}%
+        \begin{tcolorbox}[colback=red!15!white,%                    background color
+            colframe=red!75!black,%                               frame color
+            title=Warning\ifstrempty{#1}{}{: #1}% title
+            ]%
+        }{%
+        \end{tcolorbox}%
+        %\end{info@box}%
+    }
 
 
 \newenvironment{tip}[1][]{% Create new environment using info@box and tcolorbox
-	\begin{info@box}%
-		\begin{tcolorbox}[colback=green!15!white,%                    background color
-			colframe=green!75!black,%                               frame color
-			title=Tip!\ifstrempty{#1}{}{: #1},% title
-			rightrule=300mm]%
-		}{%
-		\end{tcolorbox}%
-	\end{info@box}%
+    \begin{info@box}%
+        \begin{tcolorbox}[colback=green!15!white,%                    background color
+            colframe=green!75!black,%                               frame color
+            title=Tip!\ifstrempty{#1}{}{: #1},% title
+            rightrule=300mm]%
+        }{%
+        \end{tcolorbox}%
+    \end{info@box}%
 }
 
 \newenvironment{aside}[1][]{% Create new environment using info@box and tcolorbox
-	%	\begin{info@box}%
-		\begin{tcolorbox}[colback=yellow!15!white,%                    background color
-			colframe=yellow!60!black,%                               frame color
-			title=An Aside\ifstrempty{#1}{}{: #1},% title
-			]%
-		}{%
-		\end{tcolorbox}%
-		%\end{info@box}%
-	}
+    %    \begin{info@box}%
+        \begin{tcolorbox}[colback=yellow!15!white,%                    background color
+            colframe=yellow!60!black,%                               frame color
+            title=An Aside\ifstrempty{#1}{}{: #1},% title
+            ]%
+        }{%
+        \end{tcolorbox}%
+        %\end{info@box}%
+    }
 %%%%%%%%%%%%
 % END NOTE
 %%%%%%%%%%%%
 
 \renewcommand{\qed}{\quad\qedsymbol}
 
-\DeclareMathOperator*{\argmin}{argmin} 
+\DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\argmax}{argmin}
 
 \newtheorem*{bookequation}{Equation}
