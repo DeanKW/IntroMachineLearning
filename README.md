@@ -15,7 +15,7 @@ This "course" will be divided up into modules, not weeks.  Why?  People of diffe
 
 | Module | Topic                                    | ISLP Reading | HoML Reading | Assignment |
 |--------|------------------------------------------|--------------|--------------|------------|
-| 1      | [Foundations](module1_foundations/00_mod1_foundations_overview.md)                              | Ch. 1 -2     | Ch 1         |            |
+| 1      | [Foundations](module1_foundations/00_mod1_foundations_overview.md)                              | [Ch. 1 -2](module1_foundations/ISLP_ch2_notes.pdf)     | Ch 1         |            |
 | 2      | [Linear Regression](module2_linear_regression/00_mod2_linear_regression_overview.md)                        | Ch. 3        | Ch 4.1       |            |
 | 3      | Classification                           | Ch. 4        | Ch. 3        |            |
 | 4      | Resampling and Model Evaluation          | Ch. 5        | Ch. 2        |            |

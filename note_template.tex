@@ -1,0 +1,106 @@
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{float}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ,mathtools}
+\usepackage[parfill]{parskip}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+{ \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+	{  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+{\textit{Answer:}}
+{}
+
+%%%%%%%%%%%%
+% NOTE
+%%%%%%%%%%%%
+\makeatletter
+\newfloat{info@box}{tbp}{loi}[section]% 1: Name of float environment. 2: Default placement (top, bottom, ...). 3: File extension if written to an aux-file (like toc, lof, lot, loa, ...). 4: Numbering within <section/subsection/...>.
+\makeatother
+\floatname{info@box}{Infobox}% Adapt caption.
+
+\newenvironment{infobox}[1][]{% Create new environment using info@box and tcolorbox
+	%\begin{info@box}%
+		\begin{tcolorbox}[colback=red!15!white,%                    background color
+			colframe=red!75!black,%                               frame color
+			title=Additional information\ifstrempty{#1}{}{: #1}.% title
+			]%
+		}{%
+		\end{tcolorbox}%
+%	\end{info@box}%
+}
+
+
+\newenvironment{note}[1][]{% Create new environment using info@box and tcolorbox
+%	\begin{info@box}%
+		\begin{tcolorbox}[colback=blue!15!white,%                    background color
+			colframe=blue!75!black,%                               frame color
+			title=Note\ifstrempty{#1}{}{: #1}% title
+			]%
+		}{%
+		\end{tcolorbox}%
+	%\end{info@box}%
+}
+
+
+\newenvironment{tip}[1][]{% Create new environment using info@box and tcolorbox
+	\begin{info@box}%
+		\begin{tcolorbox}[colback=green!15!white,%                    background color
+			colframe=green!75!black,%                               frame color
+			title=Tip!\ifstrempty{#1}{}{: #1},% title
+			rightrule=300mm]%
+		}{%
+		\end{tcolorbox}%
+	\end{info@box}%
+}
+
+\newenvironment{aside}[1][]{% Create new environment using info@box and tcolorbox
+	%	\begin{info@box}%
+		\begin{tcolorbox}[colback=yellow!15!white,%                    background color
+			colframe=yellow!60!black,%                               frame color
+			title=An Aside\ifstrempty{#1}{}{: #1},% title
+			]%
+		}{%
+		\end{tcolorbox}%
+		%\end{info@box}%
+	}
+%%%%%%%%%%%%
+% END NOTE
+%%%%%%%%%%%%
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+\DeclareMathOperator*{\argmin}{argmin} 
+\DeclareMathOperator*{\argmax}{argmin}
+
+\newtheorem*{bookequation}{Equation}
+
+% prevent line break in inline mode
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\date{\vspace{-5ex}}

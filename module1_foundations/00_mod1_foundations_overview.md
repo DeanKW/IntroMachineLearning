@@ -42,7 +42,7 @@ Please see our [Recommended order](#our-suggested-order).
 ## Assignments:
 
 # Notes
-* [Chapter 2 Summary: Statistical Learning Notes](ISLP_ch2_summary.md)
+* [Chapter 2 Summary: Statistical Learning Notes](ISLP_ch2_notes.pdf)
 
 
 # Our Suggested Order
