@@ -31,18 +31,4 @@ This "course" will be divided up into modules, not weeks.  Why?  People of diffe
 
 # Chapter Summaries and Notes
 Sometimes I will add my own thoughts or something from an outside source to the notes.
-I will attempt to mark these by using one of the following quote blocks.  That said, I make no guarantees that everything is marked.
-> [!NOTE]
->
-
-> [!TIP]
->
-
-> [!IMPORTANT]
->
-
-> [!WARNING]
->
-
-> [!CAUTION]
->
+I will attempt to mark these by using a colored block.  That said, I make no guarantees that everything is marked nor that everything in a box is not from the book.

@@ -8,7 +8,7 @@
         It is widely used and many    fancier models are generalizations or extensions of linear regression.    So seriously, this is important.
         \subsection*{3.1 Simple Linear Regression}
         \textbf{Simple Linear Regression} assumes that the response variable, \(Y\) has a linear relationship to a single predictor variable \(X\).
-        \begin{equation*}
+        \begin{equation*}\tag{3.1}
             Y \approx \beta_0 + \beta_1 X
         \end{equation*}
         
@@ -21,7 +21,7 @@
         
         \(\beta_0\) and \(\beta_1\) are referred to as the \textbf{coefficients} or \textbf{parameters}.\\
         We will use our training data to estimate these parameters and then indicate and reprsent our \textbf{model} as
-        \begin{equation*}
+        \begin{equation*}\tag{3.2}
             \hat Y \approx \hat \beta_0 + \hat \beta_1 X
         \end{equation*}
 
@@ -56,27 +56,29 @@
         
         The parameters can be calculated as:
         
-        \begin{gather*}
-        \hat \beta_1 = \frac{\sum_{i=1}^n(x_i - \bar x)(y_i-\bar y)}{\sum_{i=1}^n(x_i - \bar xx)^2}\\
-        \hat \beta_0 = \bar y - \hat \beta_1 \bar x
-    \end{gather*}
-     where \(\bar y\) and \(\bar x\) are the sample means.
-        \(\bar y = \frac{1}{n}\sum_{i=1}^n y_i\) and
-        \(\bar x = \frac{1}{n}\sum_{i=1}^n x_i\) \#\#\# 
+        \begin{align*}\tag{3.4}
+        \hat \beta_1 &= \frac{\sum_{i=1}^n(x_i - \bar x)(y_i-\bar y)}{\sum_{i=1}^n(x_i - \bar xx)^2}\\
+        \hat \beta_0 &= \bar y - \hat \beta_1 \bar x
+    \end{align*}
+     where \(\bar y\) and \(\bar x\) are the sample mean, defined below
+     \begin{equation*}
+           \bar y = \frac{1}{n}\sum_{i=1}^n y_i \qquad \text{and} \qquad \bar x = \frac{1}{n}\sum_{i=1}^n x_i
+     \end{equation*}
+
         \subsection*{3.1.2 Assessing the Accuracy of the Coefficient Estimates}
         \paragraph{Standard Error\\}
         \textbf{Standard error} tells us the average amount that an estimate differs from the actual value.
         
-        \begin{equation*}
+        \begin{equation*} \tag{3.7}
             \text{Var}(\hat \mu) = \text{SE}(\hat \mu)^2 = \frac{\sigma^2}{n}
         \end{equation*}
         
         
-        \begin{equation*}
+        \begin{equation*} \tag{3.8}
             \text{SE}(\hat \beta_0)^2 = \sigma^2 \left[ \frac{1}{n} + \frac{\bar x ^2}{\sum_{i=1}^n (x_i - \bar x)^2} \right]
         \end{equation*}
         
-        \begin{equation*}
+        \begin{equation*} \tag{also 3.8}
             \text{SE}(\hat \beta_1)^2 = \frac{\sigma^2}{\sum_{i=1}^n (x_i - \bar x)^2}
         \end{equation*}
         
@@ -90,12 +92,12 @@
          Standard errors can be used to compute    \textbf{confidence intervals}. The 95\% confidence interval for
         \(\beta_0\) and \(\beta_1\) are approximately: 
         \begin{gather*}
-            \hat \beta_0 \pm 2 \cdot \text{SE}(\hat \beta_0)\\
+            \hat \beta_0 \pm 2 \cdot \text{SE}(\hat \beta_0) \tag{3.11}\\
             \hat \beta_1 \pm 2 \cdot \text{SE}(\hat \beta_1)
         \end{gather*}
         
         This means there is approximately a 95\% chance that the interval
-        \begin{equation*}
+        \begin{equation*} \tag{almost 3.10}
             \left[\beta_0 - 2 \cdot \text{SE}(\hat \beta_0), \beta_0 + 2 \cdot \text{SE}(\hat \beta_0)\right]            
         \end{equation*}
         

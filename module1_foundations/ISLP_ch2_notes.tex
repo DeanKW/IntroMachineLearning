@@ -12,7 +12,7 @@
 know the true relationship. \\
 
 \noindent \textbf{Goal:} Estimate the function \(f\) that relates \(X\) and \(Y\):
-\begin{equation*}
+\begin{equation*}\tag{2.1}
     Y = f(X) + \epsilon
 \end{equation*}
     Given data \((X_1, Y_1), (X_2, Y_2), ..., (X_n, Y_n)\), where:
@@ -30,8 +30,8 @@ Two primary reasons to estimate \(f\): \textbf{prediction} and \textbf{inference
 \paragraph{Prediction\\}
 \textbf{Prediction} - Using input variables \(X\) to predict an output variable \(Y\)
 
-\begin{equation*}
-    hat Y = \hat f (X)
+\begin{equation*}\tag{2.2}
+    \hat Y = \hat f (X)
 \end{equation*}
 \begin{itemize}
 \tightlist
@@ -45,8 +45,7 @@ This will be explained more in the future. We call this the \emph{Expected Predi
 
 \begin{align*}
 E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
-&= [f(X)-\hat f(X)]^2 + \text{Var}(\epsilon)\\
-&= \text{reducible error} + \text{irreducible error}
+&= \underbrace{[f(X)-\hat f(X)]^2}_{\text{reducible error} } + \underbrace{\text{Var}(\epsilon)}_{\text{irreducible error}}  \tag{2.3}
 \end{align*}
 
 \begin{note}
@@ -84,7 +83,7 @@ E(Y-\hat Y)^2 &= E[f(X) + \epsilon + \hat f(X)]^2 \\
 \tightlist
 \item  Assume some functional form for \(f\). This is choosing the model. One
   example would be linear:
-  \begin{equation*}
+  \begin{equation*} \tag{2.4}
 	f(x) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p
   \end{equation*}
   \item  Fit or train the model. Use some procedure to estimate the parameters
@@ -155,7 +154,7 @@ In this example, we have simplified the problem of estimating \(f\) down to fitt
 When estimating the function \(\hat f (x)\) we need to determine how well it predicts the response variable, \(Y\).
 The most common way of doing this is with the \textbf{Mean Squared Error (MSE)}.
 
-\begin{equation*}
+\begin{equation*} \tag{2.5}
     \text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat f(x_i) \right)^2
 \end{equation*}
 \begin{itemize}
@@ -192,10 +191,9 @@ If MSE were computed using the training data, we would fit our training points a
 \item  High variance - overfit (model too complex)
 \end{itemize}
 
-\begin{align*}
-\text{E}[\text{MSE}]&=\text{Variance}+ \text{Bias}^2 + \text{Irreducible Error}\\
-\text{E}[y_0 - \hat{f}(x_0)]&=\text{Var}(\hat f(x_0))+ [\text{Bias}(\hat f(x_0))]^2 + \text{Var}(\epsilon)
-\end{align*}
+\begin{equation*}\tag{2.7}
+\underbrace{\text{E}[y_0 - \hat{f}(x_0)]}_{\text{E}[\text{MSE}]}=\underbrace{\text{Var}(\hat f(x_0))}_{\text{Variance}}+ \underbrace{[\text{Bias}(\hat f(x_0))]^2}_{\text{Bias}^2} + \underbrace{\text{Var}(\epsilon)}_{\text{Irreducible Error}}
+\end{equation*}
 
 \subsubsection*{2.2.3: The Classification Setting}\label{the-classification-setting}
 
@@ -203,12 +201,12 @@ If MSE were computed using the training data, we would fit our training points a
 
 
 The \textbf{Bayes classifier} (sometimes referred to as the Bayes optimal classifier) is simply one which assigns to each \(x\) value the class that is most likely, given that \(X=x\). That is, whatever class \(j\) for which 
-\begin{equation*}
+\begin{equation*} \tag{2.10}
 \text{Pr}(Y=j | X=x)
 \end{equation*}
 is the largest. A mathematical way of writing this
 could be: 
-\begin{equation*} 
+\begin{equation*} \tag{Not in book}
 C(x) = j \text{ if } p_j(x) = \max\{p_1(x), p_2(x), \ldots, p_k(x)\}
 \end{equation*}
 
