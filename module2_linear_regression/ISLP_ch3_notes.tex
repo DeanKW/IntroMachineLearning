@@ -15,14 +15,13 @@
         
         \begin{note}
             This is the same relationship as \(y=mx+b\) you likely remember from school.\\
-            \(\beta_0\) represents the intercept, \(b\) while \(\beta_1\) represents the slope, \(m\).\\
-            In the future, we will use this same notation when \(Y\) and \(X\) are vectors, usually writing them in bold \(\mathbf{Y} \approx \beta_0 + \beta_1 \mathbf{X}\)
+            \(\beta_0\) represents the intercept, \(b\) while \(\beta_1\) represents the slope, \(m\).
         \end{note}
         
         \(\beta_0\) and \(\beta_1\) are referred to as the \textbf{coefficients} or \textbf{parameters}.\\
         We will use our training data to estimate these parameters and then indicate and reprsent our \textbf{model} as
         \begin{equation*}\tag{3.2}
-            \hat Y \approx \hat \beta_0 + \hat \beta_1 X
+            \hat y = \hat \beta_0 + \hat \beta_1 X
         \end{equation*}
 
         \begin{note}
@@ -50,6 +49,7 @@
         
         \begin{align*}
             \text{RSS} &= e_1^2 + e_2^2 + \cdots + e_n^2 \\
+            &= (y_1 - \hat y_1)^2 +  (y_2 - \hat y_2)^2 + \cdots +  (y_n- \hat y_n)^2 \\
             &= (y_1 - \hat \beta_0 - \hat \beta_1 x_1)^2 + (y_2 - \hat \beta_0 - \hat \beta_1 x_2)^2  + \cdots + (y_n - \hat \beta_0 - \hat \beta_1 x_n)^2 
         \end{align*}
         
@@ -65,7 +65,7 @@
            \bar y = \frac{1}{n}\sum_{i=1}^n y_i \qquad \text{and} \qquad \bar x = \frac{1}{n}\sum_{i=1}^n x_i
      \end{equation*}
 
-        \subsection*{3.1.2 Assessing the Accuracy of the Coefficient Estimates}
+        \subsubsection*{3.1.2 Assessing the Accuracy of the Coefficient Estimates}
         \paragraph{Standard Error\\}
         \textbf{Standard error} tells us the average amount that an estimate differs from the actual value.
         
@@ -102,7 +102,7 @@
         \end{equation*}
         
         contains the true value for \(\beta_0\). 
-        \textbf{NOTE: This is an incorrect interpretation of a confidence interval , but it is what the    book writes. Please see the warning below}
+        \textbf{NOTE: This is an incorrect interpretation of a confidence interval, but it is what the book writes.  Please see the warning below}
         
         \begin{note}
             1.96 is closer to the correct value than 2. This value comes from the Z-score value for a 97.5\% quantile of a t-distribution. You
@@ -110,17 +110,108 @@
         \end{note}
         
         \begin{warning}
-            A 95\% confidence interval does \textbf{NOT} mean we are 95\% confident that the true parameters lies within that range.\\
-            What it really means is that we sampled the data 100 times, each time calculating the parameter and confidence interval 95\% of those
+            A 95\% confidence interval does \textbf{NOT} mean we there is a 95\% chance that the true parameter lies within the range.\\
+            What it really means is that if we sampled the data 100 times, each time calculating the parameter and confidence interval, 95\% of those
             confidence intervals would contain the true value of the parameter.\\
             It's a small distinction, but I wanted to make it, even if the book did not.\\
-            That said, it's generally okay to say we're 95\% confidence the true value is in the interval, even if it's incorrect. In pure statistics,
-            the distinction is generally considered 
+            We generally say that we are 95\% confident that the true parameter lies in the range, not that the probability is 0.95.
         \end{warning}
         
+        \paragraph{Hypothesis Testing\\}
+        Standard errors can also be used to perform hypothesis testing.  The most common of which is the \emph{null hypothesis}.  We will test to see if
+        the data provides evidence to reject the null hypothesis (that two variables/phenomena/results have no relationship) in favor of the alternative hypothesis (that there is a relationship)
+        \begin{equation*}\tag{3.12}
+            \underbrace{H_0}_{\text{Null hypothesis}}: \text{There is no relationship between } X \text{ and } Y \Longrightarrow \beta_1=0
+         \end{equation*}
+
+         \begin{equation*}\tag{3.13}
+            \underbrace{H_1}_{\text{Alternative hypothesis}}: \text{There is a relationship between } X \text{ and } Y\Longrightarrow \beta_1 \neq 0
+         \end{equation*}
+         We compute the \textbf{t-statistic}:
+         \begin{equation*}\tag{3.14}
+             t = \frac{\hat \beta_1-0}{\text{SE}(\hat \beta_1)}
+          \end{equation*}
+          If $\beta_1 = 0$, this will have a $t$-distribution with $n-2$ degrees of freedom.  The probability of observing a value greater than or equal to $|t|$ is called a \textbf{p-value} .  If the p-value is small, there it is unlikely that the relationship between predictor and response is due to chance.
+         We \textbf{reject} the null hypothesis (and accept the alternative hypothesis, if the p-value is "small enough")
+         
+         \begin{interesting}
+             Did you know that the $t$-test was developed by in order to make better beer?  William Sealy Gosset, while the head experimental brewer at Guinness, developed the $t$-test as a way to study the quality of the barley used in brewing Guinness.
+         \end{interesting}
+         
+         \textbf{DEAN, ADD MORE}
+         
+        \subsubsection*{3.1.3 Assessing the Accuracy of the Model}
+        \paragraph{Residual Standard Error\\}
+        Suppose we knew the exact true model, $Y\approx \beta_0+\beta_1 X$ (from equation 3.1), recall that there is the irreducible error, $\epsilon$, associated with every term.  Residual Standard Error (RSE) will attempt to estimate the standard deviation of that irreducible error.\\
+        
+        It does this by seeing how well your model fits the data!  Convenient, let's calculate the standard deviation of our residuals!  
+        
+        \begin{equation*}\tag{3.15}
+            \text{RSE} = \sqrt{\frac{1}{n-2}\text{RSS}} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n(y_i - \hat y_i)^2}
+        \end{equation*}
+        RSE tells us about the spread of the observed values from the predicted ones, how far off the model's predictions are, on average..  A lower RSE means the predicted values are closer to the observed ones.\\
+        
+        RSE is in whatever units the $Y$ variable is in, so it can be hard to understand what it really means.   For that, let's look at...
+        \paragraph{$R^2$ Statistic\\}
+        $R^2$ also measures the accuracy of the model, but does it as a proportion so the values are always between 0 and 1.
+        \begin{equation*}\tag{3.17}
+            R^2 = \frac{\text{TSS}-\text{RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}
+        \end{equation*}
+        where TSS, the \textbf{total sum of squares} is defined
+        \begin{equation*}
+            \text{TSS} = \sum_{i=1}^n(y_i - \bar y)^2
+        \end{equation*}
+        \begin{itemize}
+            \tightlist
+            \item TSS is the total variance in the response, $Y$.  Think of it as the amount of variability in the response (not dependent on the model)
+            \item RSS measures the amount of variability that is left unexplained after performing the regression
+            \item TSS - RSS then measures the amount of variability in the response that is explained by performing the regression.
+            \item $R^2$ measures the proportion of variability in $Y$ that can be explained using $X$
+        \end{itemize}
+        An $R^2$ value of $1$ means the model perfectly explains all variability.  An $R^2$ of $0$ means the model explains none of it.  It does just as well as predicting the mean.
+        
+        \textbf{Should I add correlation?}
+        
         \subsection*{3.2 Multiple Linear  Regression}\label{multiple-linear-regression}
+        What happens if we have more than one dependent variable?  If we have $p$ input variables, a multiple linear regression model takes the form:
+        \begin{equation*}\tag{3.19}
+            Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p + \epsilon
+         \end{equation*}
+         $X_j$ is the $j$th predictor, $\beta_j$ is the corresponding coefficient.  It can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, given that no other predictor variables change.
         
         \subsubsection*{3.2.1 Estimating the Regression Coefficients}\label{estimating-the-regression-coefficients}
+        Our multiple linear regression model will be
+        \begin{equation*}\tag{3.21}
+            \hat y = \hat \beta_0 + \hat \beta_1 x_1 + \hat \beta_2 x_2 + \cdots + \hat \beta_p x_p.
+        \end{equation*}
+        Like in simple linear regression, we will choose our $\beta$s in order to minimize the residual sum of squares.
+        \begin{align*}
+            \text{RSS} &= \sum_{i=1}^n (y_i - \hat y_i)^2\\
+                                &= \sum_{i=1}^n (y_i - \hat \beta_0 - \hat \beta_1 x_{i1} - \hat \beta_2 x_{i2} - \cdots - \hat \beta_p x_{ip})^2
+        \end{align*}
+        \begin{note}
+            While not covered by ISLP, in order to make the book more approachable (and not dependent on linear algebra), you will often see multiple linear regression represented in matrix form.
+            If we let
+            \begin{equation*}
+                \boldsymbol{\beta} = \begin{bmatrix*}
+                    \hat \beta_0\\
+                    \hat \beta_1 \\
+                    \hat \beta_2 \\
+                    \vdots \\
+                    \hat \beta_n
+                \end{bmatrix*} \qquad \text{and} \qquad 
+                \mathbf{X}_i= \begin{bmatrix*}
+                    1 & x_{i1} & x_{i2} & \cdots & x_{in}
+                \end{bmatrix*}
+            \end{equation*}
+            then
+            \begin{equation*}
+                \hat y_i = \mathbf{X}_i\boldsymbol{\beta}
+             \end{equation*}
+             
+             Note that you will likely see this represented as multiple rows in $\mathbf{X}$ and $\mathbf{Y}$ representing different observations.  I've omitted that to make it easier to understand.
+        \end{note}
+        
         
         \subsubsection*{3.2.2 Some Important Questions}\label{some-important-questions}
         

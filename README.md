@@ -32,3 +32,11 @@ This "course" will be divided up into modules, not weeks.  Why?  People of diffe
 # Chapter Summaries and Notes
 Sometimes I will add my own thoughts or something from an outside source to the notes.
 I will attempt to mark these by using a colored block.  That said, I make no guarantees that everything is marked nor that everything in a box is not from the book.
+
+# "Pre-Requisites"
+
+
+# Other sets of notes or exercise solutions
+* [https://isl.study.foletta.org/](https://isl.study.foletta.org/)
+* [https://tdg5.github.io/stats-learning-notes/](https://tdg5.github.io/stats-learning-notes/)
+* [https://blog.princehonest.com/stat-learning/](https://blog.princehonest.com/stat-learning/)
