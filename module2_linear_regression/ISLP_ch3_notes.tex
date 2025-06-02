@@ -246,6 +246,7 @@
              F = \frac{\text{TSS}-\text{RSS}/p}{\text{RSS}/(n-p-1)}
           \end{equation*}
           \begin{itemize}
+          	\item Tests that all coefficients are $0$.
               \item When there is no relationship between the response and predictors, the $F$-statistics takes on a value close to 1.  If there is a relationship(and $H_a$ is true), the $F$ statistic is greater than 1.
               \item How large the $F$-statistic must be depends on the values of $n$ and $p$.
               \item For large $n$, smaller $F$-statistic can provide evidence against $H_0$.  If $n$ is small, need a larger $F$-statistic.
@@ -259,17 +260,51 @@
                              F = \frac{\text{RSS}_0-\text{RSS}/q}{\text{RSS}/(n-p-1)}
            \end{equation*}
 
-           The $p$-values of individual regressors (which provided information on if that variable was related to the response ), is equivalent to the $F$-statistic omitting that single variable from the model, leaving the rest in.  Suppose we have 100 predictors $p=100$ and none are related to the response, meaning $H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$ is true.  There is a 5\% chance that any given $p$-value is below 0.05, totally by chance!  So we would expect 5 of them to have small $p$-values, despite there being no true association between the predictor and response!  This means, \textbf{If we use the individual $t$-statistics and associated $p$-values in order to decide whether or not there is any association between the variables and the response, there is a very high chance that we will incorrectly conclude that there is a relationship}.  The $F$-statistic does not suffer this problem because it adjusts for the number of predictors.  If $H_0$ is true (and there is no association between any predictor and the response), there is only a 5\% chance that the $F$-statistic will result in a $p$ value below 0.05.
+			\begin{itemize}
+				\item  The $p$-values of individual regressors (which provided information on if that variable was related to the response ), is equivalent to the $F$-statistic omitting that single variable from the model, leaving the rest in.
+					\begin{warning}[Why bother with F statistics?]
+					Suppose we have 100 predictors $p=100$ and none are related to the response, meaning $H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$ is true.  There is a 5\% chance that any given $p$-value is below 0.05, totally by chance!  So we would expect 5 of them to have small $p$-values, despite there being no true association between the predictor and response!  This means, \textbf{If we use the individual $t$-statistics and associated $p$-values in order to decide whether or not there is any association between the variables and the response, there is a very high chance that we will incorrectly conclude that there is a relationship}.  The $F$-statistic does not suffer this problem because it adjusts for the number of predictors.  If $H_0$ is true (and there is no association between any predictor and the response), there is only a 5\% chance that the $F$-statistic will result in a $p$ value below 0.05.
+				\end{warning}
+				\item  Using an $F$-statistic to test for any association works when $p$ is relatively small compared to $n$.
+				\begin{itemize}
+					\item  If $p > n$, then there are more coefficients $\beta_j$ to estimate than observations from which to estimate.  Then, we cannot use least-squares to fit the multiple linear regression, so the $F$-statistic cannot be used 
+					\item   When $p$ is large, some approaches discussed soon, like forward selection can be used.  More detail about handling high-dimensional settings is in Chapter 6.
+				\end{itemize}
+			\end{itemize}
+		
+            
 
-           Using an $F$-statistic to test for any association works when $p$ is relatively small compared to $n$.  If $p > n$, then there are more coefficients $\beta_j$ to estimate than observations from which to estimate.  Then, we cannot use least-squares to fit the multiple linear regression, so the $F$-statistic cannot be used (nor many other concepts yet mentioned).  When $p$ is large, some approaches discussed soon, like $forward selection$ can be used.  More detail about handling high-dimensional settings is in Chapter 6.
+           
 
          \subsubsection*{Deciding on Important Variables}
          \begin{itemize}
              \item Most direct approach is called \textbf{all subsets} or \textbf{best subsets} regression.  Compute the least squares fit for all possible subsets and then choose between them based on some criterion that balances training error with model size.
              \item Can't do when large number of regressors, since there are $2^p$ possible subsets.  Even $p=40$ results in over a billion models!
          \end{itemize}
+         \paragraph{Three Main Approaches}
+         \begin{itemize}
+         	\item \textbf{Forward Selection} - Begin with \textbf{null model} (has intercept, but no predictors).  Then fit $p$ simple linear regressions and add to the null model, the variable that results in the lowest RSS.  Repeat for the new one-variable, two-variable, etc model.
+         	\begin{itemize}
+         		\item Greedy approach - might include variables early on that later become redundant
+         	\end{itemize}
+         	\item \textbf{Backward Selection} - start with all variables in model, remove the variable with largest $p$ value.  Repeat process
+         	\begin{itemize}
+         		\item Cannot be used if $p > n$
+         	\end{itemize}
+         	\item \textbf{Mixed Selection} - Start with  null model, add variables one-by-one.  If as add new variables, the $p$-value for a model reaches a threshold, remove it.  Continue going foward and backwards until all variables have low $p$ value and all variables not in the model have large $p$-value.         \end{itemize}
 
          \subsubsection*{Model Fit}
+         \begin{itemize}
+         	\item \textbf{RSE}
+         	\item $R^2$ - Recall, in simple linear regression, is correlation of response and variable.  In multiple, $\operatorname{Cor}(Y, \hat Y)^2$
+         	\begin{itemize}
+         		\item Note: Property of fitted linear model is maximizes the correlation among all possibel linear models
+         		\item $R^2$ close to $1$ means model explains a large portion of variance in the response variable.
+         		\item $R^2$ always increases as more variables are added to the model, even if those variables only weakly associated with response, since get better fit to training data.  Small increase probably means omit variable.
+         	\end{itemize}
+         	
+         \end{itemize}
+         end{itemize}
          \subsubsection*{Predictions}
         
         \section*{3.3 Other Considerations in the Regression Model}\label{other-considerations-in-the-regression-model}
